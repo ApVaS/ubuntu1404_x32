@@ -1,0 +1,22 @@
+# win image file caches
+Thumbs.db
+ehthumbs.db
+
+# win folder config file
+Desktop.ini
+
+# win recycle bin used on file shares
+$RECYCLE.BIN/
+
+# KDE directory preferences
+.directory
+
+# text editors temporary files such as emacs
+*~
+
+# vagrant
+.vagrant/
+
+# Mac OS X Finder 
+.DS_Store
+
