@@ -4,7 +4,7 @@ Template for developing applications with LAMP and Vagrant.
 
 Environment
 -----------
- * Ubuntu 14.04 x32
+ * **Ubuntu 14.04 x32**
  * Apache/2.4.10 (MPM worker,mod_proxy_fcgi)
  * PHP 5.6.4 (fpm)
  * MySQL 5.6.21
