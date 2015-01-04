@@ -5,7 +5,7 @@ Template for developing applications with LAMP and Vagrant.
 Environment
 -----------
  * **Ubuntu 14.04 x32**
- * Apache/2.4 (MPM worker,mod_proxy_fcgi)
+ * Apache 2.4 (MPM worker,mod_proxy_fcgi)
  * PHP 5.6 (fpm)
  * MySQL 5.6
  * Vagrant/Puphpet (php puppet)
@@ -17,7 +17,7 @@ Requirements
 
  - *Vagrant 1.6+*
 
-ps. Vagrant box url - https://vagrantcloud.com/puphpet/boxes/debian75-x64/versions/1.2/providers/virtualbox.box
+ps. Vagrant box (531mb) - https://atlas.hashicorp.com/puphpet/boxes/ubuntu1404-x32/versions/1.0/providers/virtualbox.box
 
 File structure
 --------------
