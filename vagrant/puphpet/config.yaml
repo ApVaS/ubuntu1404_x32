@@ -57,6 +57,21 @@ vagrantfile-local:
                     exclude:
                         - .vagrant/
                     auto: 'false'
+            gkiNM7hoRjbc:
+                owner: vagrant
+                group: vagrant
+                source: ./../tmp_php/
+                create: true
+                target: /tmp/php/
+                sync_type: default
+                rsync:
+                    args:
+                        - '--verbose'
+                        - '--archive'
+                        - '-z'
+                    exclude:
+                        - .vagrant/
+                    auto: 'false'
         usable_port_range:
             start: 10200
             stop: 10500
@@ -196,6 +211,30 @@ xdebug:
         xdebug.remote_enable: '1'
         xdebug.remote_handler: dbgp
         xdebug.remote_port: '9009'
+        xdebug.show_exception_trace: '1'
+        xdebug.show_local_vars: '1'
+        xdebug.max_nesting_level: '50'
+        xdebug.var_display_max_depth: '6'
+        xdebug.dump_once: '1'
+        xdebug.dump_globals: '1'
+        xdebug.dump_undefined: '1'
+        xdebug.dump.GET: '*'
+        xdebug.dump.POST: '*'
+        xdebug.dump.REQUEST: '*'
+        xdebug.dump.SERVER: '*'
+        xdebug.trace_format: '0'
+        xdebug.auto_trace: '0'
+        xdebug.trace_enable_trigger: '1'
+        xdebug.trace_output_dir: '/tmp/php'
+        xdebug.trace_output_name: 'trace.%p.%t'
+        xdebug.collect_params: '4'
+        xdebug.collect_includes: '1'
+        xdebug.collect_return: '1'
+        xdebug.show_mem_delta: '1'
+        xdebug.profiler_enable: '0'
+        xdebug.profiler_enable_trigger: '1'
+        xdebug.profiler_output_name: 'cg.%p.%t--%H.%s'
+        xdebug.profiler_output_dir: '/tmp/php'
 xhprof:
     install: '0'
 wpcli:
