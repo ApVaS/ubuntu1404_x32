@@ -33,8 +33,8 @@ apvas
 │         └─── .htaccess
 ├─── logs/
 ├─── tmp_php/
-└─── vagrant
-     ├─── puphpet	
+└─── vagrant/
+     ├─── puphpet/	
      │     ├─── files/		
      │     ├─── puppet/	
      │     ├─── shell/
@@ -63,8 +63,8 @@ logs
 Folder synced to /var/log/apache2 and contains apache access, error logs. Usualy error log contains php error messages too.
 
 tmp_php
----------
-Folder synced to /tmp/php. Stores php.xdebug traces and profile cachegrid data.
+-------
+Folder synced to /tmp/php. Stores php.xdebug traces and profile's cachegrid data.
 
 vagrant
 -------
