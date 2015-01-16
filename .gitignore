@@ -16,7 +16,18 @@ $RECYCLE.BIN/
 
 # vagrant
 .vagrant/
+vagrant.log
 
 # Mac OS X Finder 
 .DS_Store
 
+# Apvas 
+logs/*.log
+
+tmp_php/
+!tmp_php/empty
+
+var3w/
+
+vagrant/puphpet/files/dot/ssh/
+!vagrant/puphpet/files/dot/insecure_private_key

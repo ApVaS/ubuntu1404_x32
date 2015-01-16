@@ -57,6 +57,21 @@ vagrantfile-local:
                     exclude:
                         - .vagrant/
                     auto: 'false'
+            gkiNM7hoRjbc:
+                owner: www-data
+                group: www-data
+                source: ./../tmp_php/
+                create: true
+                target: /tmp/php/
+                sync_type: default
+                rsync:
+                    args:
+                        - '--verbose'
+                        - '--archive'
+                        - '-z'
+                    exclude:
+                        - .vagrant/
+                    auto: 'false'
         usable_port_range:
             start: 10200
             stop: 10500
@@ -77,6 +92,7 @@ server:
     packages:
         - vim
         - curl
+        - git-core
 users_groups:
     install: '1'
     groups: {  }
@@ -86,7 +102,12 @@ cron:
     jobs: {  }
 firewall:
     install: '1'
-    rules: null
+    rules:
+        xdebug:
+            port: 9009
+            proto: tcp
+            action: accept
+            priority: 9009
 apache:
     install: '1'
     settings:
@@ -106,7 +127,7 @@ apache:
             docroot: /var/www/webdev.vag
             port: '80'
             setenv:
-                - 'APP env'
+                - 'APP dev'
             directories:
                 scxh1tppovjq:
                     provider: directory
@@ -166,6 +187,7 @@ php:
             - intl
             - mbstring
             - mcrypt
+            - gd
         pear: {  }
         pecl:
             - pecl_http
@@ -173,6 +195,10 @@ php:
         display_errors: On
         error_reporting: '-1'
         session.save_path: /var/lib/php/session
+        memory_limit: '128M'
+        max_execution_time: '300'
+        upload_max_filesize: '128M'
+        post_max_size: '128M'
     timezone: Europe/Kiev
     mod_php: 0
 hhvm:
@@ -196,6 +222,30 @@ xdebug:
         xdebug.remote_enable: '1'
         xdebug.remote_handler: dbgp
         xdebug.remote_port: '9009'
+        xdebug.show_exception_trace: '1'
+        xdebug.show_local_vars: '1'
+        xdebug.max_nesting_level: '5000'
+        xdebug.var_display_max_depth: '6'
+        xdebug.dump_once: '1'
+        xdebug.dump_globals: '1'
+        xdebug.dump_undefined: '1'
+        xdebug.dump.GET: '*'
+        xdebug.dump.POST: '*'
+        xdebug.dump.REQUEST: '*'
+        xdebug.dump.SERVER: '*'
+        xdebug.trace_format: '0'
+        xdebug.auto_trace: '0'
+        xdebug.trace_enable_trigger: '1'
+        xdebug.trace_output_dir: '/tmp/php'
+        xdebug.trace_output_name: 'trace.%p.%t'
+        xdebug.collect_params: '4'
+        xdebug.collect_includes: '1'
+        xdebug.collect_return: '1'
+        xdebug.show_mem_delta: '1'
+        xdebug.profiler_enable: '0'
+        xdebug.profiler_enable_trigger: '1'
+        xdebug.profiler_output_dir: '/tmp/php'
+        xdebug.profiler_output_name: 'cg.%p.%t--%H.%s'
 xhprof:
     install: '0'
 wpcli:
@@ -220,7 +270,17 @@ python:
             version: ''
 mysql:
     install: '1'
-    override_options: {  }
+    override_options:
+        'client':
+            'default-character-set': 'utf8mb4'
+        'mysql':
+            'default-character-set': 'utf8mb4'
+        'mysqld':
+            'character-set-client-handshake': 'FALSE'
+            'character-set-server': 'utf8mb4'
+            'collation-server': 'utf8mb4_unicode_ci'
+        'mysqldump':
+            'default-character-set': 'utf8mb4'
     root_password: '123'
     adminer: 0
     databases: {  }
@@ -262,7 +322,7 @@ mailcatcher:
         http_ip: 0.0.0.0
         http_port: '1080'
         mailcatcher_path: /usr/local/rvm/wrappers/default
-        from_email_method: headers
+        from_email_method: inline
 beanstalkd:
     install: '0'
     settings:
@@ -289,4 +349,3 @@ solr:
     settings:
         version: 4.10.2
         port: '8984'
-
