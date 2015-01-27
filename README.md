@@ -32,8 +32,9 @@ apvas
 │         ├─── index.php
 │         └─── .htaccess
 ├─── logs/
-└─── vagrant
-     ├─── puphpet	
+├─── tmp_php/
+└─── vagrant/
+     ├─── puphpet/	
      │     ├─── files/		
      │     ├─── puppet/	
      │     ├─── shell/
@@ -60,6 +61,10 @@ Each vhost is separate project managed with git or other CVS. Thus these vhost f
 logs
 ----
 Folder synced to /var/log/apache2 and contains apache access, error logs. Usualy error log contains php error messages too.
+
+tmp_php
+-------
+Folder synced to /tmp/php. Stores php.xdebug traces and profile's cachegrid data.
 
 vagrant
 -------
