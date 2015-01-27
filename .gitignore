@@ -24,10 +24,11 @@ vagrant.log
 # Apvas 
 logs/*.log
 
-tmp_php/
+tmp_php/*
 !tmp_php/empty
 
-var3w/
+var3w/*
+!var3w/empty
 
-vagrant/puphpet/files/dot/ssh/
+vagrant/puphpet/files/dot/ssh/*
 !vagrant/puphpet/files/dot/insecure_private_key
